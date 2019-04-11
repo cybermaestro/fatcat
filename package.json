@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "author": "https://github.com/lenchik-ponchik",
+  "repository": "https://github.com/lenchik-ponchik/parcel-starter",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -20,12 +21,23 @@
   },
   "dependencies": {
     "es6-promise": "^4.2.6",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "postcss-preset-env": "^6.6.0"
   },
   "browserslist": [
     "> 1%",
     "last 10 versions"
   ],
+  "cssnano": {
+    "preset": [
+      "default",
+      {
+        "discardComments": {
+          "removeAll": true
+        }
+      }
+    ]
+  },
   "babel": {
     "presets": [
       "env"
@@ -34,6 +46,9 @@
   "postcss": {
     "modules": false,
     "plugins": {
+      "postcss-preset-env": {
+        "stage": 0
+      },
       "autoprefixer": {}
     }
   },
@@ -58,6 +73,6 @@
     "dev": "parcel ./app/index.pug --no-cache --port 9999 --open ",
     "prebuild": "rm -rf build/*",
     "build": "parcel build ./app/index.pug --no-cache --no-source-maps -d build --detailed-report",
-    "postbuild": "cp ./app/robots.txt ./build/; cp ./app/humans.txt ./build/; cp ./app/favicon/* ./build/favicon/;echo '✨  Build complete. '"
+    "postbuild": "cp ./app/static/robots.txt ./build/; cp ./app/static/humans.txt ./build/; cp -R ./app/static/favicon/ ./build/favicon/; cp ./app/static/favicon/favicon.ico ./build/; echo '✨  Build complete. '"
   }
 }
