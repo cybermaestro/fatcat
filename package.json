@@ -1,0 +1,63 @@
+{
+  "name": "parcel-starter",
+  "description": "Parcel Starter",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "https://github.com/lenchik-ponchik",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-lazy": "0.0.4",
+    "pug": "^2.0.3",
+    "sass": "^1.18.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "autoprefixer": "^9.5.1",
+    "babel-polyfill": "^6.26.0",
+    "postcss-modules": "^1.4.1"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.6",
+    "normalize.css": "^8.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 10 versions"
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": "airbnb-base",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {}
+  },
+  "scripts": {
+    "predev": "rm -rf dist/*",
+    "dev": "parcel ./app/index.pug --no-cache --port 9999 --open ",
+    "prebuild": "rm -rf build/*",
+    "build": "parcel build ./app/index.pug --no-cache --no-source-maps -d build --detailed-report",
+    "postbuild": "cp ./app/robots.txt ./build/; cp ./app/humans.txt ./build/; cp ./app/favicon/* ./build/favicon/;echo '✨  Build complete. '"
+  }
+}

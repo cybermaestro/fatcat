@@ -1,0 +1,5 @@
+header
+  .container
+      nav
+        each link in links
+          a(href=current === link.name ? "javascript:;" : link.url class=current === link.name ? "nav-link nav-link--active" : "nav-link") !{link.name}

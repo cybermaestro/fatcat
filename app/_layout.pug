@@ -1,0 +1,23 @@
+block vars
+  - 
+    var current = "Index";
+
+include ./templates/helpers/index.pug
+
+doctype html
+html(lang="en-US" encoding="UTF-8" charset="UTF-8" dir="ltr" language="English" prefix="og: http://ogp.me/ns#" itemtype="http://schema.org/WebPage")
+  head
+    include ./templates/sections/head/meta.pug
+    include ./templates/sections/head/favicons.pug
+    include ./templates/sections/head/socials.pug
+    include ./templates/sections/head/google-fonts.pug
+    include ./templates/sections/head/style-script.pug
+  body
+    .wrapper
+      include ./templates/sections/header/index.pug
+      
+      main
+        block content
+
+      include ./templates/sections/footer/index.pug
+    script(defer crossorigin='anonymous' type='application/javascript' charset='UTF-8' src='./js/index.js')
