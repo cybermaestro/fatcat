@@ -15,13 +15,18 @@ html(lang="en")
             +e('header')
                 h2 Ты сегодня покормил кота?
             +b('row')
-                +e('card')
-                    .box
-                        p Сказочное заморское яство
-                        h3 <span>Нямушка</span></br> с фуа-гра
-                        p 10 порций </br>мышь в подарок
-                        img(src="images/fat_cat.png", alt="fatcat")
+                - var cards = [{quantity: '10 порций </br>мышь в подарок', weight: '<span>0,5</span> </br> кг'},{quantity: '40 порций </br>2 мыши в подарок', weight: '<span>2</span> </br> кг'},{quantity: '100 порций </br>5 мышей в подарок </br>заказчик доволен', weight: '<span>5</span> </br> кг'}]
+                    each card, index in cards
+                        +e('card')
+                            .box
+                                +e('info')
+                                    p Сказочное заморское яство
+                                    h3 <span>Нямушка</span></br> с фуа-гра
+                                    p!= card.quantity
+                                +e('imag')
+                                    img(src="images/fat_cat.png", alt="fatcat")
+                                +e('circle')
+                                    .circle_text!= card.weight
                     
-    #orange
 
     script(src="pug.config.js")
