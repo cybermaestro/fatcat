@@ -1,0 +1,27 @@
+include ../node_modules/bempug/index
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="style/style.scss")
+        title Fat Cat
+    body 
+
+    +b('fat-cat')
+        .container
+            +e('header')
+                h2 Ты сегодня покормил кота?
+            +b('row')
+                +e('card')
+                    .box
+                        p Сказочное заморское яство
+                        h3 <span>Нямушка</span></br> с фуа-гра
+                        p 10 порций </br>мышь в подарок
+                        img(src="images/fat_cat.png", alt="fatcat")
+                    
+    #orange
+
+    script(src="pug.config.js")

@@ -1,78 +1,35 @@
 {
-  "name": "parcel-starter",
-  "description": "Parcel Starter",
-  "version": "0.0.2",
-  "license": "MIT",
-  "author": "https://github.com/lenchik-ponchik",
-  "repository": "https://github.com/lenchik-ponchik/parcel-starter",
+  "name": "fat_cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "parcel src/index.pug --port 8080 --open",
+    "build": "parcel build src/index.pug --no-cache --no-source-maps -d build --detailed-report --no-minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:cybermaestro/fatcat.git"
+  },
+  "keywords": [
+    "FatCat"
+  ],
+  "author": "Dima <superman1499@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "git@github.com:cybermaestro/fatcat/issues"
+  },
+  "homepage": "git@github.com:cybermaestro/fatcat#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-lazy": "0.0.4",
-    "pug": "^2.0.4",
-    "sass": "^1.23.7",
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "autoprefixer": "^9.7.3",
-    "babel-polyfill": "^6.26.0",
-    "postcss-modules": "^1.4.1"
+    "bempug": "^1.1.1",
+    "cssnano": "^5.1.14",
+    "postcss": "^8.4.21",
+    "pug": "^3.0.2",
+    "sass": "^1.57.1"
   },
   "dependencies": {
-    "es6-promise": "^4.2.8",
-    "normalize.css": "^8.0.1",
-    "postcss-preset-env": "^6.7.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 5 versions"
-  ],
-  "cssnano": {
-    "preset": [
-      "default",
-      {
-        "discardComments": {
-          "removeAll": true
-        }
-      }
-    ]
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
-  },
-  "postcss": {
-    "modules": false,
-    "plugins": {
-      "postcss-preset-env": {
-        "stage": 0
-      },
-      "autoprefixer": {}
-    }
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es6": true
-    },
-    "extends": "airbnb-base",
-    "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "rules": {}
-  },
-  "scripts": {
-    "predev": "rm -rf dist/*",
-    "dev": "parcel ./app/index.pug --no-cache --port 9999 --open ",
-    "prebuild": "rm -rf build/*",
-    "build": "parcel build ./app/index.pug --no-cache --no-source-maps -d build --detailed-report",
-    "postbuild": "cp ./app/static/robots.txt ./build/; cp ./app/static/humans.txt ./build/; cp -R ./app/static/favicon/ ./build/favicon/; cp ./app/static/favicon/favicon.ico ./build/; echo '✨  Build complete. '"
+    "es6": "^0.0.7",
+    "normalize.css": "^8.0.1"
   }
 }
