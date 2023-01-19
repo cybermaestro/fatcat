@@ -5,9 +5,6 @@ let absent = document.querySelectorAll(".absent");
 let subtitle = document.querySelectorAll(".subtitle");
 let have = document.querySelectorAll(".row__have");
 let button = document.querySelectorAll(".button");
-let describe = document.querySelectorAll(".describe");
-let active_header = document.querySelectorAll(".active_header");
-
 
 
 
@@ -17,8 +14,6 @@ function clickingOnTheFatCat(i) {
     subtitle[i].classList.toggle('hide');
     card[i].classList.toggle('bk-static');
     card[i].classList.toggle('bk-active')
-    describe[i].classList.toggle('hover_effect')
-    active_header[i].classList.toggle('show')
 }
 
 function clickinTheFeedOver(i) {
