@@ -15,9 +15,13 @@ html(lang="en")
                 +e('header')
                     h2 Ты сегодня покормил кота?
                 +b('row')
-                    - var cards = [{quantity: '10 порций </br>мышь в подарок', weight: '<span>0,5</span> </br> кг', active: "Печень утки разварная с артишоками.", absent: "Печалька, с фуа-гра закончился.", have: "+"},{quantity: '40 порций </br>2 мыши в подарок', weight: '<span>2</span> </br> кг', active: "Головы щучьи с чесноком да свежайшая сёмгушка.", absent: "Печалька, с рыбой закончился.", have: "+"},{quantity: '100 порций </br>5 мышей в подарок </br>заказчик доволен', weight: '<span>5</span> </br> кг', active: "Филе из цыплят с трюфелями в бульоне.", absent: "Печалька, с курой закончился.", have: "-"}]
+                    - var cards = [{quantity: '10 порций </br>мышь в подарок', weight: '<span>0,5</span> </br> кг', active: "Печень утки разварная с артишоками.", absent: "Печалька, с фуа-гра закончился."},{quantity: '40 порций </br>2 мыши в подарок', weight: '<span>2</span> </br> кг', active: "Головы щучьи с чесноком да свежайшая сёмгушка.", absent: "Печалька, с рыбой закончился."},{quantity: '100 порций </br>5 мышей в подарок </br>заказчик доволен', weight: '<span>5</span> </br> кг', active: "Филе из цыплят с трюфелями в бульоне.", absent: "Печалька, с курой закончился."}]
                         each card, index in cards
                             .wrapper
+                                +e('counter')
+                                    | Кол-во: 
+                                    button.minus нету
+                                    button.plus есть
                                 +e('card').bk-static
                                     .box
                                         +e('info')
@@ -28,7 +32,6 @@ html(lang="en")
                                             img(src="images/fat_cat.png", alt="fatcat")
                                         +e('circle')
                                             .circle_text!= card.weight
-                                        +e('have')= card.have
                                 .subtitle Чего сидишь? Порадуй котэ,<span class = "button"> купи</span> 
                                 .active= card.active
                                 .absent= card.absent
