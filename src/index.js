@@ -6,10 +6,9 @@ let subtitles = document.querySelectorAll(".subtitle");
 let button = document.querySelectorAll(".button");
 
 // Счетчик
-let counters = document.querySelectorAll('.row__counter')
-let counterMinusElem = document.querySelectorAll('.minus');
-let counterPlusElem = document.querySelectorAll('.plus');
-let count = new Array(cards.length).fill(0);
+let counterMinusElems = document.querySelectorAll('.minus');
+let counterPlusElems = document.querySelectorAll('.plus');
+let counts = new Array(cards.length).fill(0);
 
 // Эффекты карточек
 
@@ -33,22 +32,22 @@ function clickinTheFeedOver(i) {
 for (let i = 0; i < cards.length; i++) {
 
     cards[i].addEventListener('click', function () {
-        if (counterPlusElem[i].classList[1] == "click_button" || counterMinusElem[i].classList[1] == "click_button") {
-            if (count[i] == 0) {
+        if (counterPlusElems[i].classList.contains("click_button") || counterMinusElems[i].classList.contains("click_button")) {
+            if (counts[i] == 0) {
                 clickinTheFeedOver(i);
             }
-            if (count[i] > 0) {
+            if (counts[i] > 0) {
                 clickingOnTheFatCat(i);
             }
         }
     })
     
     button[i].addEventListener('click', function () {
-        if (counterPlusElem[i].classList[1] == "click_button" || counterMinusElem[i].classList[1] == "click_button") {
-            if (count[i] == 0) {
+        if (counterPlusElems[i].classList.contains("click_button") || counterMinusElems[i].classList.contains("click_button")) {
+            if (counts[i] == 0) {
                 clickinTheFeedOver(i);
             }
-            if (count[i] > 0) {
+            if (counts[i] > 0) {
                 clickingOnTheFatCat(i);
             }
         }
@@ -60,41 +59,39 @@ for (let i = 0; i < cards.length; i++) {
 
 
 
+for (let i = 0; i < counts.length; i++) {
 
+    counterPlusElems[i].addEventListener("click", function () {
+        counterPlusElems[i].classList.toggle('click_button');
+        counts[i] = 1;
 
-for (let i = 0; i < count.length; i++) {
-
-    counterPlusElem[i].addEventListener("click", function () {
-        counterPlusElem[i].classList.toggle('click_button');
-        count[i] = 1;
-
-        if (counterMinusElem[i].classList[1] == "click_button") {
-            counterMinusElem[i].classList.remove('click_button');
-            if ( cards[i].classList[1] == 'bk-absent') {
+        if (counterMinusElems[i].classList.contains("click_button")) {
+            counterMinusElems[i].classList.remove('click_button');
+            if ( cards[i].classList.contains('bk-absent')) {
                 clickinTheFeedOver(i)
             }
         }
 
-        if (counterPlusElem[i].classList[1] != 'click_button') {
-            if (cards[i].classList[1] == 'bk-active') {
+        if (!counterPlusElems[i].classList.contains('click_button')) {
+            if (cards[i].classList.contains('bk-active')) {
                 clickingOnTheFatCat(i)
             }
         }
     });
     
-    counterMinusElem[i].addEventListener("click", function () {
-        counterMinusElem[i].classList.toggle('click_button');
-        count[i] = 0;
+    counterMinusElems[i].addEventListener("click", function () {
+        counterMinusElems[i].classList.toggle('click_button');
+        counts[i] = 0;
 
-        if (counterPlusElem[i].classList[1] == "click_button") {
-            counterPlusElem[i].classList.remove('click_button');
-            if ( cards[i].classList[1] == 'bk-active') {
+        if (counterPlusElems[i].classList.contains("click_button")) {
+            counterPlusElems[i].classList.remove('click_button');
+            if ( cards[i].classList.contains('bk-active')) {
                 clickingOnTheFatCat(i)
             }
         }
 
-        if (counterMinusElem[i].classList[1] != 'click_button') {
-            if(cards[i].classList[1] == 'bk-absent') {
+        if (!counterMinusElems[i].classList.contains('click_button')) {
+            if(cards[i].classList.contains('bk-absent')) {
                 clickinTheFeedOver(i)
             }
         }
@@ -102,7 +99,7 @@ for (let i = 0; i < count.length; i++) {
     
 }
 
-console.log(counterPlusElem[0].classList[1])
+
 
 
 

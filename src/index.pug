@@ -18,9 +18,9 @@ html(lang="en")
                     - var cards = [{quantity: '10 порций </br>мышь в подарок', weight: '<span>0,5</span> </br> кг', active: "Печень утки разварная с артишоками.", absent: "Печалька, с фуа-гра закончился."},{quantity: '40 порций </br>2 мыши в подарок', weight: '<span>2</span> </br> кг', active: "Головы щучьи с чесноком да свежайшая сёмгушка.", absent: "Печалька, с рыбой закончился."},{quantity: '100 порций </br>5 мышей в подарок </br>заказчик доволен', weight: '<span>5</span> </br> кг', active: "Филе из цыплят с трюфелями в бульоне.", absent: "Печалька, с курой закончился."}]
                         each card, index in cards
                             .wrapper
-                                +e('counter')
-                                    | Кол-во: 
-                                    button.minus нету
+                                +e('stocks')
+                                    | Наличие: 
+                                    button.minus нет
                                     button.plus есть
                                 +e('card').bk-static
                                     .box
